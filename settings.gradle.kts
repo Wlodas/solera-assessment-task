@@ -1,0 +1,1 @@
+rootProject.name = "solera-assessment-task"
