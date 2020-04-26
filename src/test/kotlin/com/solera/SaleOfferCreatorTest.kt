@@ -18,9 +18,9 @@ private class SaleOfferCreatorTest {
 		// then
 		assertThat(saleOffer).isEqualTo(SaleOffer(
 			entries = listOf(
-				SaleOffer.Entry(product = Product.APPLE, amount = 1, value = Product.APPLE.price),
-				SaleOffer.Entry(product = Product.ORANGE, amount = 1, value = Product.ORANGE.price),
-				SaleOffer.Entry(product = Product.BANANA, amount = 2, value = Product.BANANA.price * 2)
+				SaleOffer.Entry(Product.APPLE, amount = 1, value = Product.APPLE.price),
+				SaleOffer.Entry(Product.ORANGE, amount = 1, value = Product.ORANGE.price),
+				SaleOffer.Entry(Product.BANANA, amount = 2, value = Product.BANANA.price * 2)
 			)
 		))
 	}
@@ -29,7 +29,7 @@ private class SaleOfferCreatorTest {
 	fun `should apply 'three for the price of two' rule for papaya fruits`() {
 		// given
 		val shoppingCart = ShoppingCart()
-		shoppingCart.addProduct(product = Product.PAPAYA, amount = 7)
+		shoppingCart.addProduct(Product.PAPAYA, amount = 7)
 		
 		// when
 		val saleOffer = SaleOfferCreator.createFromShoppingCart(shoppingCart)
@@ -37,7 +37,7 @@ private class SaleOfferCreatorTest {
 		// then
 		assertThat(saleOffer).isEqualTo(SaleOffer(
 			entries = listOf(
-				SaleOffer.Entry(product = Product.PAPAYA, amount = 7, value = Product.PAPAYA.price * 5)
+				SaleOffer.Entry(Product.PAPAYA, amount = 7, value = Product.PAPAYA.price * 5)
 			)
 		))
 	}
